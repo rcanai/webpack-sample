@@ -39,4 +39,7 @@ styles, scripts直下に共通ファイル、
 
 ## ESLintについて
 
-設定されていません。  
+[airbnbのJavaScript style guide](https://github.com/airbnb/javascript) を使用しています。  
+
+
+EOF  

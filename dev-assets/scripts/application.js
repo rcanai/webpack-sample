@@ -1,10 +1,9 @@
 class Hoge {
-
-  constructor () {
+  constructor() {
     this.name = 'Hoge';
   }
 
-  getName () {
+  getName() {
     return this.name;
   }
 }
