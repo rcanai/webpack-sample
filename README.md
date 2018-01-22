@@ -5,8 +5,10 @@ SPAではなく複数のページを持つアプリケーションを対象と�
 
 ## バージョン情報
 
-- node -v # 8.9.4
+- node -v # 8.9.3
+- npm -v # 5.6.0
 - webpack -v # 3.10.0
+- eslint -v # 4.16.0
 
 ## 初期設定
 
@@ -39,7 +41,7 @@ styles, scripts直下に共通ファイル、
 
 ## ESLintについて
 
-[airbnbのJavaScript style guide](https://github.com/airbnb/javascript) を使用しています。  
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) を使用しています。  
 
 
 EOF  
