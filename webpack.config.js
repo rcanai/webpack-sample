@@ -38,7 +38,6 @@ ScriptConfig = {
       }
     ]
   },
-  devtool: 'source-map',
   plugins: [
     new Webpack.optimize.CommonsChunkPlugin({
       name: 'webpackCommonChunk'

@@ -1,3 +1,14 @@
 {
-	"extends": "airbnb"
+	"extends": "airbnb",
+	"plugins": [],
+	"parserOptions": {
+		"ecmaVersion": 6
+	},
+	"env": {
+		"browser": true
+	},
+	"globals": {
+
+	},
+	"rules": {}
 }
