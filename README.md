@@ -1,4 +1,4 @@
-# webpack-sample
+# webpack-template
 
 webpackを使用してES6以上のJavaScriptとSass(.scss)をコンパイルする設定例です。  
 SPAではなく複数のページを持つアプリケーションを対象としています。  
