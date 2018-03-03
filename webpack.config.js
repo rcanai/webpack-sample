@@ -38,10 +38,8 @@ ScriptConfig = {
     ]
   },
   optimization: {
-    splitChunks : {
-      chunks: 'all',
-      name: 'chunks'
-    }
+    runtimeChunk: 'single',
+    splitChunks: false,
   },
   watchOptions: {
     poll: 300 /* Vagrant error avoidance */

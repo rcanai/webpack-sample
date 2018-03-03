@@ -22,7 +22,7 @@ SPAではなく複数のページを持つアプリケーションを対象と�
 
 ## 開発
 
-dev-assets内のファイルを編集してください。  
+assets.development内のファイルを編集してください。  
 styles, scripts直下に共通ファイル、  
 */pages配下に各ページごとのファイルを置いています。
 
@@ -34,7 +34,7 @@ styles, scripts直下に共通ファイル、
   <link rel="stylesheet" href="./assets/css/pages/[ページ名].css">
 <head>
 <body>
-  <script src="./assets/js/webpackCommonChunk.js"></script>
+  <script src="./assets/js/runtime.js"></script>
   <script src="./assets/js/application.js"></script>
   <script src="./assets/js/pages/[ページ名].js"></script>
 <body>
