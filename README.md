@@ -18,6 +18,7 @@ SPAではなく複数のページを持つアプリケーションを対象と�
 
 > npm run build # webpack  
 > npm run build-w # webpack --watch  
+> npm run rebuild # clear assets  
 
 ## 開発
 

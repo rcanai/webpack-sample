@@ -1,8 +1,7 @@
 const path = require('path');
-const Webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const DevPath = path.join(__dirname, 'dev-assets');
+const DevPath = path.join(__dirname, 'assets.development');
 const OutputPath = path.join(__dirname, 'assets');
 
 const Entrys = {
@@ -11,6 +10,7 @@ const Entrys = {
 };
 
 ScriptConfig = {
+  mode: 'development',
   context: path.join(DevPath, 'scripts'),
   entry: Entrys,
   output: {
@@ -23,37 +23,33 @@ ScriptConfig = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader'
-      },
-      {
         enforce: 'pre',
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         loader: 'eslint-loader',
-        options: {
-          failOnError: true
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
         }
       }
     ]
   },
-  plugins: [
-    new Webpack.optimize.CommonsChunkPlugin({
-      name: 'webpackCommonChunk'
-    }),
-    new Webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ],
+  optimization: {
+    splitChunks : {
+      chunks: 'all',
+      name: 'chunks'
+    }
+  },
   watchOptions: {
     poll: 300 /* Vagrant error avoidance */
   }
 };
 
 StyleConfig = {
+  mode: 'development',
   context: path.join(DevPath, 'styles'),
   entry: Entrys,
   output: {
@@ -67,24 +63,28 @@ StyleConfig = {
     rules: [
       {
         test: /\.scss$/,
-        exclude: /(node_modules|bower_components)/,
-        loader:
-        ExtractTextPlugin.extract({
-          use: [{
-            loader: "css-loader",
-            options: {
-              minimize: true /* minify */
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: false
+              }
             }
-          }, {
-            loader: "sass-loader"
-          }],
-        }),
+          ]
+        })
       }
     ]
   },
-  devtool: 'source-map',
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
   ],
   watchOptions: {
     poll: 300 /* Vagrant error avoidance */
